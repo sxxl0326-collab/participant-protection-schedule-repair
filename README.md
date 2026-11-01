@@ -1,58 +1,49 @@
 # Participant Protection in Stable Schedule Repair
 
-Saved evidence, source snapshots and offline verification for a computational
-study of participant protection in schedule repair. The manuscript follows the
-IEEE US-Letter conference template and contains six pages, including references.
+## Current version: PP-SR-20261101-v35
 
-## Download
+Use the [v35 version directory](versions/v35) for the manuscript and evidence.
 
-Open this repository's **Releases** and download the versioned evidence ZIP.
-The release description records the corresponding SHA-256 and verification
-report. Use the same version for the manuscript and its evidence.
+- [Working manuscript PDF](versions/v35/paper.pdf)
+- [Download the matching evidence ZIP](https://github.com/sxxl0326-collab/participant-protection-schedule-repair/raw/refs/heads/main/versions/v35/PP-SR-20261101-v35.zip)
+- [Manuscript/package SHA-256 and verification record](versions/v35/release_manifest.json)
+- [Table II](versions/v35/table_II.csv), [Table III](versions/v35/table_III.csv), and [closed-loop Table IV](versions/v35/table_IV_closedloop.csv)
 
-## Verify offline
+Historical Release assets correspond to earlier manuscripts. The v35 manuscript
+and evidence are bound by `versions/v35/release_manifest.json`.
 
-1. Extract the evidence ZIP into a new folder.
-2. Open a terminal in that folder.
-3. Run `python -B verify.py` with Python 3.10 or later.
-4. Confirm that the final output contains `"status": "PASS"`.
+## Verify and regenerate saved results
 
-The saved-evidence checker uses the Python standard library. It does not need
-internet access, an optimization solver installation or new optimization calls.
+Extract the v35 evidence ZIP into a **new directory**, open a terminal there, and run:
 
-## Contents and scope
+```sh
+python -B verify.py
+python -B recompute_tables.py --output reproduced_tables
+```
 
-- `manuscript/`: the corresponding editable Word manuscript, PDF, figure source
-  data, editable vector figures and manuscript-generation sources.
-- `paper/walkthrough/`: a self-contained computational example; open `index.html`
-  locally. This is an archived example, not a live solver or evaluated interface.
-- `v8_pairs/`: all 40,542 affected-pair queries from fourteen selected two-outage
-  cases: 19,830 compatible, 20,701 incompatible and eleven unresolved queries.
-- `v10/`: the matched-allowance count-first experiment and its saved trajectories.
-- `v9/`: the underlying coordination and repeated-workday evidence package.
+Both commands use Python 3.10+ standard-library modules, require no network or
+solver, and end in `"status": "PASS"`. They check byte integrity, independently
+replay positive schedules and histories, and regenerate the saved table values.
+The local clean-directory check passed before publication.
 
-The manifest binds the exact released bytes. Positive schedules, impact
-histories and arithmetic are replayed and checked. Solver claims of infeasibility
-or optimality are retained solver results, not independently checked formal
-proof traces. Eleven unresolved pair queries are not certified refusals.
-Source snapshots support inspection; fresh optimizer runs require the original
-project layout and its documented dependencies. The self-contained checker is
-the supported offline replay route.
+Verification of saved runs is different from rerunning all optimization.
+Fresh solves require the documented original project layout and OR-Tools 9.11;
+source snapshots, inputs, time limits and seeds are included in the artifact.
+Solver-confirmed negative/optimal statuses are retained results, not external
+UNSAT/optimality proof traces.
 
-## Interpretation
+## Evaluation scope
 
-Requests and menu acceptance are simulated. The experiments do not establish
-employee preferences, usability, human negotiation or perceived fairness.
-Recorded timing phases are not controlled end-to-end latency benchmarks.
-The two-outage structural results are conditional on the selected cases.
+The manuscript reports computational simulations. It does not report a user
+study or establish employee preferences, workplace acceptance or perceived
+fairness. The new own-history comparison includes Least-recent and Round-robin;
+requests and actual budgets can differ between policies. Author samples remain
+in the working manuscript and must be resolved before conference submission.
 
-## Upstream data and rights
+## Data and rights
 
-The study uses the public MSLIB multi-skilled project library, release 2.2.
-Preserve the upstream citation and access information in the package. The
-archive contains selected derived parameters and evidence rather than an
-unlicensed mirror of the upstream library. Third-party rights remain with their
-owners. No new licence for third-party data, templates or papers is implied.
-
-AI assistance is disclosed in the manuscript. Responsibility for the scientific
-claims and final publication remains with the authors.
+The artifact retains the MSLIB release identity, exact-input manifests and
+upstream citations. Third-party rights remain with their owners; no new licence
+for third-party data, templates or papers is implied. Questionnaire materials
+and individual participant response files are excluded. AI assistance is
+disclosed in the manuscript; the authors remain responsible for all claims.

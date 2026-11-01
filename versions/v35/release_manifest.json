@@ -1,0 +1,60 @@
+{
+  "evidence_id": "PP-SR-20261101-v35",
+  "date": "2026-11-01",
+  "status": "Checked computational research artifact; not a camera-ready submission",
+  "manuscript": "paper.pdf",
+  "evidence_package": "PP-SR-20261101-v35.zip",
+  "files": {
+    "own_history.py": {
+      "bytes": 11446,
+      "sha256": "2a4baab15cd363c623b2ede83100b45bc97abc1e9ad8ca247c2a81b99ebb0285"
+    },
+    "paper.pdf": {
+      "bytes": 441925,
+      "sha256": "d9e2ac979ea03f8bc028c4aeddf03971f9990926ba205a20ad6db52e39cb7d88"
+    },
+    "PP-SR-20261101-v35.zip": {
+      "bytes": 18300554,
+      "sha256": "66506d927b1849164421fb34ae1d82d8bacae0914ed4964d67e9c5ac03c7c06e"
+    },
+    "README.md": {
+      "bytes": 3210,
+      "sha256": "24d37d4bc419865bea0a1b837c53f9e6bb2628f7ed157dd0d001cec5dd10de11"
+    },
+    "recompute_tables.py": {
+      "bytes": 4945,
+      "sha256": "e25f47904756bad1c77b3291b4379b44b0eac2906fa80bba2975e9b4d213befe"
+    },
+    "table_II.csv": {
+      "bytes": 559,
+      "sha256": "f5350dc9893e6c83225bfb96e865da375bd94f50a5c604b306fe65ef38dfe01d"
+    },
+    "table_III.csv": {
+      "bytes": 588,
+      "sha256": "256cdcbf8e8fbd74f162f69ef45b38b5512f1dff2ad6a6759a6886617245d952"
+    },
+    "table_IV_closedloop.csv": {
+      "bytes": 810,
+      "sha256": "c5c898ae4b151c33f5ea62ccf2f126a51b92e420f9f0320de1298d87e0541d8a"
+    },
+    "verify_closedloop.py": {
+      "bytes": 7099,
+      "sha256": "88f85a1dc89778ed7d2b14b7609c520d02594adb45be05191df74db1afdafeaf"
+    }
+  },
+  "clean_verification": {
+    "exit_code": 0,
+    "result": "PASS",
+    "command": "python -B verify.py",
+    "environment": "Newly extracted directory; Python standard library; no optimization calls"
+  },
+  "table_generation_command": "python -B recompute_tables.py --output reproduced_tables",
+  "fresh_optimizer_scope": "Separate original project layout and OR-Tools 9.11 required; not performed by saved-evidence verification.",
+  "new_closedloop_policies": [
+    "LeastRecent",
+    "RoundRobin"
+  ],
+  "new_policy_days": 2000,
+  "closedloop_scope": "First/Random/Linear archived trajectories plus newly computed recency/rotation; policy-specific requests and actual budgets; timings from separate batches.",
+  "guarantee_scope": "Independent positive-schedule/history/arithmetic checks; stored negative and optimal statuses are not external proof traces."
+}
