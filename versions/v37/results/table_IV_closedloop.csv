@@ -1,0 +1,6 @@
+policy,delivered,refusals,unknown,C,G,concession_days,mean_max_I,mean_max_shift,recorded_stage_seconds,selected_statuses,raw_solver_statuses
+First,877,123,0,2231,2796,19,4.76,82.62,654.8946287009749,"{""CHECKED_RESPONSE"": 1000}","{""NOT_APPLICABLE"": 1000}"
+Random,877,121,2,2231,2793,18,3.74,84.1,1307.8361462000757,"{""FALLBACK"": 8, ""OPTIMAL"": 992}","{""OPTIMAL"": 992, ""UNKNOWN"": 8}"
+RoundRobin,881,119,0,2233,2793,19,3.3,83.62,1183.3805588002433,"{""FALLBACK"": 2, ""OPTIMAL"": 998}","{""OPTIMAL"": 998, ""UNKNOWN"": 2}"
+LeastRecent,880,120,0,2233,2792,19,3.18,84.08,1170.051301299769,"{""FALLBACK"": 1, ""OPTIMAL"": 999}","{""OPTIMAL"": 999, ""UNKNOWN"": 1}"
+Linear,877,123,0,2229,2792,14,3.18,82.36,1272.069261699071,"{""FALLBACK"": 2, ""OPTIMAL"": 998}","{""OPTIMAL"": 998, ""UNKNOWN"": 2}"
