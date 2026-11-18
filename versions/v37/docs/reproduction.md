@@ -50,3 +50,10 @@ above. `artifact.json` lists every public archive member.
 The project uses public MSLIB model inputs and synthetic scheduling events. Their upstream
 rights are unchanged. See `data.md` for the source tag, selection list and archive identity.
 No license is inferred merely from public accessibility.
+
+## Frozen design recount
+
+`python -B verify_design_details.py` verifies the candidate indices, Least-recent weights,
+977-day status intersection, Poisson request denominators, exhaustive pair totals and
+combined-relaxation counts. It writes `reproduced_archival/design_details.json` and uses
+no solver. The underlying saved schedules and numerical CSVs are unchanged.

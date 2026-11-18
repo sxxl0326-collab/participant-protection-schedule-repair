@@ -2,7 +2,7 @@
 
 ## Snapshot and evidence
 
-The fixed release is `v1.0.0-code-data`. `data/saved_results.zip` is unchanged, with SHA-256
+The fixed release is `v1.0.1-code-data`. `data/saved_results.zip` is unchanged, with SHA-256
 `66d62d5e2c0e012ba066b0361599b720a06658f94894c6fe6d54f9313e89f973`.
 `artifact.json` lists its members. The repository publishes computational records only.
 Individual response files and manuscript documents are excluded.
@@ -112,3 +112,63 @@ have replayed cores; 86 are subset-minimal and 63 contain only the request. Inde
 arithmetic obstructions cover 32 (30 Hall, 2 temporal); the other 67 retain solver
 statuses and core diagnostics. This 32/99 coverage is not the coverage of the 113
 History-menu refusals. No external UNSAT proof trace is supplied.
+
+
+
+## Frozen design details
+
+Run `python -B verify_design_details.py` from `versions/v37`. It checks saved records
+without optimization. The design details below supplement the summaries above.
+
+### Workday event screening
+
+The shared 50-model, 20-day cohort uses lists of 20 candidates per day, frozen before
+production solving. Each candidate samples an original positive-duration activity and
+assigned worker; its outage begins at that activity's original start. The first candidate
+whose lexicographic activity and participant optima are both proved is accepted. These
+events are then reused by all policies before generating protection requests. Screening
+uses stability proof completion, not later request delivery or burden outcomes.
+
+Across 1,000 accepted events, 1,012 candidates were attempted: 12 attempts failed to prove
+the activity-change optimum C*, causing replacements on 8 days. All 12 have status
+`C_UNPROVED` (4 C-stage FEASIBLE, 8 UNKNOWN); the G stage was not reached. Thus 12 is
+the number of rejected attempts, not the number of replaced days. The frozen screening
+extract, relative source names and SHA-256 records are in
+`docs/evidence/frozen_workday_screening.json`. The public matched records independently
+confirm 8 days with candidate index greater than zero and 12 skipped candidate positions.
+
+### Baseline objectives
+
+Random minimizes a sum of seeded integer weights from 1 to 10 over affected non-outage
+workers. It is not uniform sampling from feasible schedules or affected sets.
+
+Least-recent stores a last-impact date `last[w]`, initialized to -1. For n workers with
+zero-based IDs, its weight is `(last[w]+1)*(n*n+1)+w`; the current outage worker has
+weight zero. It minimizes the sum of these weights over affected workers and updates
+dates for all adopted non-outage impacts. At fixed actual G and fixed outage flags,
+this is equivalent to first minimizing summed last-impact dates, then summed worker
+IDs. The multiplier makes the date sum dominate the ID sum. The checker verifies all
+2,000 matched-arm Least-recent weight vectors and date updates.
+
+The 977-day recount uses the intersection of OPTIMAL statuses for Random, Round-robin,
+Least-recent and Burden-aware. First is not part of the optimality criterion. Recounting
+filters the original trajectories and preserves their earlier histories and fallbacks.
+
+### Compatibility denominators and diagnostic interventions
+
+Protection capacity `|F|-k` counts flexible workers only. Safe workers are unaffected in
+every strict optimum and do not consume this flexible capacity. The 35 complete Poisson
+maps with k>=2 each contribute 3 seeded requests at capacity and 3 above capacity, giving
+105 per category; 54 and 105, respectively, have saved INFEASIBLE statuses.
+
+The pair extension exhausts all unordered flexible-worker pairs in the 14 k=2 maps
+within the preselected 20-model two-outage cohort. The 40,542 pairs are queries within
+14 model events, not independent scheduling scenarios. Each query protects F minus
+that pair. Their totals are 19,830 compatible, 20,701 incompatible, 11 UNKNOWN.
+
+In the 99 base-refusal diagnostics, removing C/G caps alone rescues 22. Removing both
+caps and frozen start/crew equalities rescues 35 in total, including those 22. Both
+interventions retain the original deadline and start lower bounds for originally
+unstarted activities. Extending the deadline alone rescues 2. Unfreezing is a diagnostic
+counterfactual, not an executable remedy. The checker recounts these saved status
+categories; it does not generate external proofs of negative solver answers.

@@ -11,7 +11,7 @@ protection opportunities, or select a repair using previous impact counts.
 ## 1. Get the project
 
 ```sh
-git clone --branch v1.0.0-code-data --single-branch https://github.com/sxxl0326-collab/participant-protection-schedule-repair.git
+git clone --branch v1.0.1-code-data --single-branch https://github.com/sxxl0326-collab/participant-protection-schedule-repair.git
 cd participant-protection-schedule-repair/versions/v37
 ```
 
@@ -24,6 +24,7 @@ Requires Python 3.10 or later. No third-party Python packages are needed.
 
 ```sh
 python -B verify.py
+python -B verify_design_details.py
 ```
 
 The last JSON record should contain `"status": "PASS"` and `"solver_calls": 0`.

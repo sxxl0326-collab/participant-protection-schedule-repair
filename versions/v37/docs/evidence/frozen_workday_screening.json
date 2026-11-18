@@ -1,0 +1,146 @@
+{
+  "screening": {
+    "days": 1000,
+    "attempts": 1012,
+    "days_with_replacement": 8
+  },
+  "failed_attempts": [
+    {
+      "model": "set4_2282",
+      "day": 7,
+      "candidate": 0,
+      "status": "C_UNPROVED",
+      "C_status": "FEASIBLE"
+    },
+    {
+      "model": "set4_2282",
+      "day": 9,
+      "candidate": 0,
+      "status": "C_UNPROVED",
+      "C_status": "FEASIBLE"
+    },
+    {
+      "model": "set2_3191",
+      "day": 17,
+      "candidate": 0,
+      "status": "C_UNPROVED",
+      "C_status": "FEASIBLE"
+    },
+    {
+      "model": "set2_3473",
+      "day": 0,
+      "candidate": 0,
+      "status": "C_UNPROVED",
+      "C_status": "UNKNOWN"
+    },
+    {
+      "model": "set2_3473",
+      "day": 0,
+      "candidate": 1,
+      "status": "C_UNPROVED",
+      "C_status": "UNKNOWN"
+    },
+    {
+      "model": "set2_3473",
+      "day": 1,
+      "candidate": 0,
+      "status": "C_UNPROVED",
+      "C_status": "UNKNOWN"
+    },
+    {
+      "model": "set2_3473",
+      "day": 1,
+      "candidate": 1,
+      "status": "C_UNPROVED",
+      "C_status": "UNKNOWN"
+    },
+    {
+      "model": "set2_3473",
+      "day": 1,
+      "candidate": 2,
+      "status": "C_UNPROVED",
+      "C_status": "UNKNOWN"
+    },
+    {
+      "model": "set2_3473",
+      "day": 6,
+      "candidate": 0,
+      "status": "C_UNPROVED",
+      "C_status": "UNKNOWN"
+    },
+    {
+      "model": "set2_3473",
+      "day": 12,
+      "candidate": 0,
+      "status": "C_UNPROVED",
+      "C_status": "UNKNOWN"
+    },
+    {
+      "model": "set2_3473",
+      "day": 13,
+      "candidate": 0,
+      "status": "C_UNPROVED",
+      "C_status": "UNKNOWN"
+    },
+    {
+      "model": "set2_3473",
+      "day": 13,
+      "candidate": 1,
+      "status": "C_UNPROVED",
+      "C_status": "FEASIBLE"
+    }
+  ],
+  "screening_sources_sha256": {
+    "results\\core_v4_20261016\\workday_setups\\set3_377.json": "b853c2c534f351f97282be60c6ebe4555361646ddca87a1ff0a47020641e6703",
+    "results\\core_v4_20261016\\workday_setups\\set1_6515.json": "0c316ef8ecd09b5bdfd90662e631fa6998710992353d4de7559e055913a08687",
+    "results\\core_v4_20261016\\workday_setups\\set3_8823.json": "cfcbb7787be5aec58b1e5d6963d5f43c1e007e21803ad45474710ceac5a43e63",
+    "results\\core_v4_20261016\\workday_setups\\set3_10322.json": "0e927c7f24045d9bdbaf577fe4955615e4c824292c716e1484de3dde7146dc03",
+    "results\\core_v4_20261016\\workday_setups\\set1_354.json": "69d82b8f32661e99513a9b73d8cb00af8df4a675b9a1e61ac36b6325adbf0fba",
+    "results\\core_v4_20261016\\workday_setups\\set1_1331.json": "c17c067a8c76b7128bae134165592ed1176c187afcb73702c615eea24feca386",
+    "results\\core_v4_20261016\\workday_setups\\set1_990.json": "a75606250acb3e7c0c8c5231be29d2b2a2b68a2c6d16c6d2d410b2811dd4b5b4",
+    "results\\core_v4_20261016\\workday_setups\\set4_4015.json": "9c164198bea66c6cb27615148ec29697fcdfab0dca257362fb12d0ff77ec127e",
+    "results\\core_v4_20261016\\workday_setups\\set1_6373.json": "deef3f2c31241f138e9263125f41e7d5d1132c3659e9424b5745c8f411488f5f",
+    "results\\core_v4_20261016\\workday_setups\\set4_87.json": "dd1554e2c7d6a6028330b030d6fbe312d639a202378025d0d3d3fc359673df26",
+    "results\\core_v4_20261016\\workday_setups\\set3_8169.json": "45db6e9e6c457f6b4fe3b79ecd58e8eeedc0a45f1c27e805ee4ea70c979de60c",
+    "results\\core_v4_20261016\\workday_setups\\set3_7178.json": "42e85dacdc30723a9f17cd662ecd11b1ac24ac541aec2bf300a8c87a9610675d",
+    "results\\core_v4_20261016\\workday_setups\\set4_2282.json": "7b615991ee9aeddf75bdb17eeba4fde997806b515f35deada77c25d7e87c49c2",
+    "results\\core_v4_20261016\\workday_setups\\set4_4998.json": "d7148044237d3059dd6d7be48af21794ba9e464a35a298d05d89b1423075f255",
+    "results\\core_v4_20261016\\workday_setups\\set3_7063.json": "c952f93088740d1d76cb6b1110c6182357420a2c9bf444d96222430bd9aac840",
+    "results\\core_v4_20261016\\workday_setups\\set3_1173.json": "cc0b8cc2dac55381f863ba3cb4d28b04adb53792538e5623ffd2fb6e8fc1fcdc",
+    "results\\core_v4_20261016\\workday_setups\\set3_10938.json": "64f5385945b54612acdcb87593d50d1a24400209ba9e3b64732293c3e8d716ca",
+    "results\\core_v4_20261016\\workday_setups\\set1_1916.json": "9b8a42946aa0e610b56546c83197a332bc98804bd52dd997fadfe9769955050c",
+    "results\\core_v4_20261016\\workday_setups\\set3_1224.json": "1721f5340111fec47fe818496e0c3c54c3fd8f4bcf75dba477939a5bd9ba15e3",
+    "results\\core_v4_20261016\\workday_setups\\set4_1335.json": "622d83a1659b3f09f4a1066ae9f1593ccd861999d5e8811a00d8870d8713a6b7",
+    "results\\core_v4_20261016\\workday_setups\\set1_5910.json": "9e5552cb30fe7c98249e5affabf97d53d1688a12ec89ac7310873028681369d7",
+    "results\\core_v4_20261016\\workday_setups\\set1_2024.json": "3a56dceecd3de26a131802d5c622bd93541dfa0a7ed81c3743dd87d9fab5652a",
+    "results\\core_v4_20261016\\workday_setups\\set3_2587.json": "af673e147f058e5582f02d9c11b9f6d8519ce1e0698c293ffdc72a4544c3e059",
+    "results\\core_v4_20261016\\workday_setups\\set1_2202.json": "8ee7f729575f1fbb95f6389e46c996c44798cbe8ff81aa6ff23c996d179d9f4c",
+    "results\\core_v4_20261016\\workday_setups\\set3_5541.json": "081a8cd4a1ea86d6eba8eb8900aa9fafcbf61665636ccc886b8725138104b308",
+    "results\\core_v4_20261016\\workday_setups\\set2_5779.json": "38fbd7e5452716d40fa26feec3224d4718702f5e2e449acd968734b357b4c55b",
+    "results\\core_v4_20261016\\workday_setups\\set2_3979.json": "d3acd3b5e23d039b38fca0a889c3704b8691f7750591fda024858fac9ab4179a",
+    "results\\core_v4_20261016\\workday_setups\\set2_4111.json": "9017e2f56bc02248cfe04ae404ad4ed9125a42a0be1c392e9bb6eee3a20c07c4",
+    "results\\core_v4_20261016\\workday_setups\\set2_5539.json": "ce206439696ba18049495d34a0edf239ce969db74494c146ce32dd7b41a46c48",
+    "results\\core_v4_20261016\\workday_setups\\set2_4605.json": "47bd5c83a905a09f332deb47c5ba6154fbf73e7be7fa12306b16054f7191ba7a",
+    "results\\core_v4_20261016\\workday_setups\\set2_3726.json": "780b8d5f40f4e8a37c5d2e485b88edf9659e32aaf25c9bee6d425f4afbb89e69",
+    "results\\core_v4_20261016\\workday_setups\\set2_3101.json": "f1822ea0425110f9d5dab0233c868c27a0437a329fda2ba18ad9ca9d66e6b583",
+    "results\\core_v4_20261016\\workday_setups\\set2_3191.json": "c2b8df9478f8ad328bbf5943e4870bfbd4b1316d4433d2be9ce06c2103042a61",
+    "results\\core_v4_20261016\\workday_setups\\set2_5821.json": "7af4e33d1fc4102e36b9f4086bd60dfcc48a4b13a491367bc95ef9c7207e201d",
+    "results\\core_v4_20261016\\workday_setups\\set2_3011.json": "a579d070ae9fd0eac5a48829f43d3b726bf60056c063b6aa4da75ebe2feb259a",
+    "results\\core_v4_20261016\\workday_setups\\set2_5207.json": "deb81ce6cf6eaa2fe2940ac7fd9fa589910451285ad739b9ac294ffd6d5c6aa9",
+    "results\\core_v4_20261016\\workday_setups\\set2_4805.json": "f6192e260311918b1e1986416cfa2044aacbb84328a8a313adf9187f49b47133",
+    "results\\core_v4_20261016\\workday_setups\\set2_4746.json": "6bbb720a61e656039fe36f3dcce6a7cb7430cfd8226ad13aa2c53d65fb338ce0",
+    "results\\core_v4_20261016\\workday_setups\\set2_3687.json": "1b23966b8aece191421c51cf2cbdcd780e2ad8afbd4150b555bafb0efc379610",
+    "results\\core_v4_20261016\\workday_setups\\set2_3057.json": "3a0bf8c8b2d3ad2a515325894dfc946b88bc312632a82643d79d37cccd2c62a0",
+    "results\\core_v4_20261016\\workday_setups\\set2_5650.json": "f9839634fc022eeb51e04ce7967de19650157e605bc22966d6d3737a39b261a0",
+    "results\\core_v4_20261016\\workday_setups\\set2_5503.json": "019e9d2790bb479be7bb56087bc20cfcb260fae7832ad50156e636d5e1697e84",
+    "results\\core_v4_20261016\\workday_setups\\set2_5709.json": "1667dd3dcc4d7c6c3a5b9c6645fa9a2681e309f299adaa5703dae5e518cec3d0",
+    "results\\core_v4_20261016\\workday_setups\\set2_4830.json": "48e475db1ec74081f841947d6bc82d758b4d86495caa56d65028d74498f55ec5",
+    "results\\core_v4_20261016\\workday_setups\\set2_5038.json": "9674751850cbc6f8c9b43e44c7834abe24ebf279da966489f276e9606ae0101c",
+    "results\\core_v4_20261016\\workday_setups\\set2_3240.json": "26ee7c1e1d55019bc7f53e33bf9b11c1bb56d4443e95abeee14f02ab2d51aae7",
+    "results\\core_v4_20261016\\workday_setups\\set2_3473.json": "395605a9bb80af5b3ba0aa11722ce82e40cfc84e721ef44421c8a1269550c275",
+    "results\\core_v4_20261016\\workday_setups\\set2_5959.json": "d9b49e3c694440ec48b5bc884e151294139ca9873d7d79c0798678b52c3f0c21",
+    "results\\core_v4_20261016\\workday_setups\\set2_3288.json": "1857af3d1342ef0ac4d3b3a8f6ee564c9c16dc5f253741d586809b972703d516",
+    "results\\core_v4_20261016\\workday_setups\\set2_3785.json": "56b00e765888730c2ff1ca790d7bf9ba928cdc731c4ae3c31c936b5ffa2e7b02"
+  },
+  "scope": "Frozen computational screening extract only. Relative source names refer to the archived experiment tree; no manuscript or human response data."
+}
