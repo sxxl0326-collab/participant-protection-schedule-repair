@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="268" viewBox="0 0 960 268" role="img" aria-labelledby="title desc">
+  <title id="title">Schedule repair with participant protection</title>
+  <desc id="desc">A schedule outage leads to stable repair, a protection request receives one of three outcomes, and an adopted repair updates impact history. All diagram elements are schematic.</desc>
+  <defs>
+    <linearGradient id="surface" x2="1" y2="1">
+      <stop stop-color="#132943"/>
+      <stop offset="1" stop-color="#0E1D31"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0L6 3L0 6Z" fill="#8BCDC8"/>
+    </marker>
+  </defs>
+  <rect width="960" height="268" rx="20" fill="url(#surface)"/>
+  <path d="M324 29V224M635 29V224" stroke="#476076" stroke-width="1"/>
+  <path d="M310 78H337M621 78H648" fill="none" stroke="#8BCDC8" stroke-width="1.7" marker-end="url(#arrow)"/>
+  <g font-family="Arial, sans-serif">
+    <g fill="#A1B8CE" font-size="13" font-weight="bold" letter-spacing="2">
+      <text x="35" y="41">STABLE REPAIR</text>
+      <text x="350" y="41">PROTECTION REQUEST</text>
+      <text x="661" y="41">REPAIR SELECTION</text>
+    </g>
+    <g fill="#F5F9FD" font-size="21" font-weight="bold">
+      <text x="35" y="75">Limit schedule changes</text>
+      <text x="350" y="75">Check unchanged duties</text>
+      <text x="661" y="75">Use impact history</text>
+    </g>
+    <path d="M35 105H293M35 145H293M35 185H293" stroke="#405C73" stroke-width="1"/>
+    <rect x="147" y="96" width="40" height="89" rx="4" fill="#463B3B"/>
+    <path d="M147 97V185M187 97V185" stroke="#F0B67C" stroke-width="1" stroke-dasharray="3 3"/>
+    <rect x="40" y="113" width="69" height="14" rx="4" fill="#6BB9B4"/>
+    <rect x="195" y="113" width="72" height="14" rx="4" fill="#6BB9B4"/>
+    <rect x="80" y="153" width="59" height="14" rx="4" fill="#8CA9C5"/>
+    <rect x="162" y="153" width="56" height="14" rx="4" fill="none" stroke="#F0B67C" stroke-width="1.4" stroke-dasharray="3 3"/>
+    <rect x="230" y="153" width="59" height="14" rx="4" fill="#8CA9C5"/>
+    <circle cx="167" cy="137" r="9" fill="#F0B67C"/>
+    <path d="M167 132V138M167 141v1" stroke="#382720" stroke-width="1.7" stroke-linecap="round"/>
+    <rect x="350" y="99" width="254" height="27" rx="6" fill="#204344"/>
+    <rect x="350" y="132" width="254" height="27" rx="6" fill="#423B3C"/>
+    <rect x="350" y="165" width="254" height="27" rx="6" fill="#2A4056"/>
+    <g font-size="15" font-weight="bold">
+      <circle cx="366" cy="113" r="4" fill="#7DD3C6"/><text x="379" y="118" fill="#B0EAE1">Checked repair</text>
+      <circle cx="366" cy="146" r="4" fill="#F0B67C"/><text x="379" y="151" fill="#F7C899">Solver-confirmed refusal</text>
+      <circle cx="366" cy="179" r="4" fill="#A7BED3"/><text x="379" y="184" fill="#D4E0EA">Unresolved search</text>
+    </g>
+    <g fill="#E3EDF5" font-size="14">
+      <text x="661" y="115">Prior impact counts</text>
+      <text x="661" y="176">Adopted repair</text>
+    </g>
+    <g fill="#38556C">
+      <rect x="806" y="101" width="26" height="18" rx="4"/>
+      <rect x="838" y="101" width="26" height="18" rx="4"/>
+      <rect x="870" y="101" width="26" height="18" rx="4"/>
+      <rect x="902" y="101" width="26" height="18" rx="4"/>
+      <rect x="806" y="162" width="26" height="18" rx="4"/>
+      <rect x="838" y="162" width="26" height="18" rx="4"/>
+      <rect x="870" y="162" width="26" height="18" rx="4"/>
+      <rect x="902" y="162" width="26" height="18" rx="4"/>
+    </g>
+    <rect x="806" y="101" width="26" height="18" rx="4" fill="#8BAAC5"/>
+    <rect x="870" y="101" width="26" height="18" rx="4" fill="#8BAAC5"/>
+    <rect x="838" y="162" width="26" height="18" rx="4" fill="#7DD3C6"/>
+    <path d="M866 129V151" stroke="#8BCDC8" stroke-width="1.6" marker-end="url(#arrow)"/>
+    <g fill="#B4C9DB" font-size="13.5">
+      <text x="35" y="211">Minimize changed activities first,</text>
+      <text x="35" y="229">then minimize affected workers.</text>
+      <text x="350" y="211">Test the request at stated budgets.</text>
+      <text x="350" y="229">Offer limited budget increases.</text>
+      <text x="661" y="211">Choose among eligible repairs.</text>
+      <text x="661" y="229">Record impacts after adoption.</text>
+    </g>
+  </g>
+  <path d="M35 246H925" stroke="#38556C"/>
+</svg>

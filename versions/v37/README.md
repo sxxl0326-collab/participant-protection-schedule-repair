@@ -1,58 +1,38 @@
-# Participant Protection in Stable Schedule Repair
+# Reproduce the schedule-repair experiments
 
-This directory contains the code, experimental data and reproduction instructions for
-participant-level protection in stable schedule repair. It is the reproducibility entry
-linked from the paper.
+[Project home](../../README.md) · [Figure and table index](docs/reproduction.md#figure-and-table-index) · [Experimental design](docs/experimental_design.md) · [Data provenance](docs/data.md)
 
-The solver first minimizes changed activities, then affected workers. Within that repair
-space, it can query whether specified workers retain their duties, classify individual
-protection opportunities, or select a repair using previous impact counts.
+This guide covers two workflows. Saved-result replay checks the data behind the reported results. A fresh query runs the solver on a supplied example and returns a new outcome.
 
-## 1. Get the project
+## Get the fixed snapshot
 
 ```sh
 git clone --branch v1.0.1-code-data --single-branch https://github.com/sxxl0326-collab/participant-protection-schedule-repair.git
 cd participant-protection-schedule-repair/versions/v37
 ```
 
-Alternatively, use **Code → Download ZIP** on the repository homepage, extract it, and
-open a terminal in `versions/v37`. All commands below run from this directory.
+For a download without Git, use **Source code (zip)** on the [release page](https://github.com/sxxl0326-collab/participant-protection-schedule-repair/releases/tag/v1.0.1-code-data), and open a terminal in `versions/v37`.
 
-## 2. Verify saved results — no solver or network needed
+## Verify saved results
 
-Requires Python 3.10 or later. No third-party Python packages are needed.
+Use Python 3.10+. Requirements for replay are covered by the standard library.
 
 ```sh
 python -B verify.py
 python -B verify_design_details.py
 ```
 
-The last JSON record should contain `"status": "PASS"` and `"solver_calls": 0`.
-The checker replays saved schedules and burden histories, checks protection constraints,
-and regenerates the three CSV tables into `reproduced/`. These are compared byte-for-byte
-with the reference files in `results/`.
-
-| Output | Contents |
+| Command | Expected output |
 | --- | --- |
-| [Table II](results/table_II.csv) | Request/no-request ablation and incidental delivery under History and Uniform requests |
-| Table III | Base protection maps: `supplement/scalability_summary.csv` inside `data/saved_results.zip` |
-| [Table IV](results/table_III.csv) | Matched-request impact, displacement and saved solve statuses |
-| [Table V](results/table_IV_closedloop.csv) | Own-history requests, realized C/G, concessions, impact and statuses |
-| `reproduced/verification.json` | Independent replay reports and verification scope |
+| `verify.py` | `"status": "PASS"`, `"solver_calls": 0`, three verified CSVs and `reproduced/verification.json` |
+| `verify_design_details.py` | `"status": "PASS"`, `"solver_calls": 0`, and `reproduced_archival/design_details.json` |
+| `archival_checks.py` (optional) | Saved requester-group and additive hybrid-cost summaries |
 
-This command checks saved evidence. It does not re-run all optimization experiments or
-independently prove recorded negative/optimal solver statuses.
+The [reproduction guide](docs/reproduction.md#saved-result-replay) describes which checks replay feasible schedules, histories, aggregate tables, and recorded solver statuses.
 
-The CSV filenames retain historical table numbers. The mapping above follows the current
-manuscript; the notation table is not a numerical replay output.
+## Run a new query
 
-For generation rules, seed handling and descriptive archival checks, see
-[experimental_design.md](docs/experimental_design.md). Run `python -B archival_checks.py`
-to reproduce the requester-group and additive hybrid-cost summaries without a solver.
-
-## 3. Run a fresh protection query
-
-Requires OR-Tools 9.11.4210; no GPU is needed.
+Use Python with [OR-Tools 9.11.4210](requirements.txt) available. The supplied example uses one CPU worker.
 
 ```sh
 python -m pip install -r requirements.txt
@@ -60,42 +40,20 @@ python -B demo.py --protect W8
 python -B demo.py --protect W8 W11 --map --output protection_map.json
 ```
 
-The example is a synthetic outage on the public `set4_1335` model. Its event is supplied
-in [data/example_set4_1335.json](data/example_set4_1335.json). Worker labels on the command
-line are one-based (`W8`); saved worker indices are zero-based. It is a runnable event
-example, rather than a promise to reproduce a particular figure's outage.
+The input is a [synthetic event](data/example_set4_1335.json) on MSLIB model `set4_1335`. Command-line worker labels are one-based (`W8`). Saved indices are zero-based. The solver first minimizes changed activities, then affected workers. It tests the requested duties at ordered increases `(0,0), (0,1), (1,0), (1,1)` and stops at the first independently checked repair.
 
-Each solver call uses one worker, seed 41 and a four-second limit by default. Change the
-limit with `--seconds 20`. A request is tested at `(ΔC,ΔG) = (0,0), (0,1), (1,0), (1,1)`
-in that order, stopping at the first checked protection witness. The program writes the
-query statuses and full schedule to `demo_output.json`. If the stability optimum is not
-proved within the limit, it reports that status and stops before making optimum-relative
-claims. Timeouts remain `UNKNOWN`.
+The default output is `demo_output.json`. It contains setup status and, once the stability optima have been proved, the response at each menu entry tried and a schedule for any successful response. `--map` also queries individual protection states. If setup remains unproved, the example stops before making an optimum-relative protection claim. A query timeout is recorded as `UNKNOWN`.
 
-## 4. Code and data layout
+The default limit is 4 s per solver call, including model construction. Use `--seconds 20` for more time. The example uses seed 41.
 
-```text
-demo.py                         Fresh CP-SAT example and bounded request response
-verify.py                       File hashes and saved-result replay
-reproduce_tables.py              Regenerate three numerical CSVs (legacy filenames)
-src/engine.py                    Repair model, exact queries, map and tie-breaking
-src/independent_checker.py       Schedule/impact checker without solver imports
-src/mslib_repair.py              Original feasibility/metric helper functions
-src/expanded_impact_study.py      Original own-duty impact metric
-data/example_set4_1335.json      Standalone example input
-data/saved_results.zip           Allowlisted saved schedules and numerical evidence
-results/                        Reference machine-readable tables
-artifact.json                   Data archive identity and member list
-SHA256SUMS.txt                   Public file hashes
-docs/reproduction.md             Evidence map and method details
-docs/data.md                     Input provenance and third-party source
-```
+## Browse the files
 
-Saved identifiers `Linear`, `RoundRobin` and `LeastRecent` mean **Burden-aware**,
-**Round-robin** and **Least-recent**, respectively. Identifiers are retained so that the
-recorded schedules, histories and CSVs remain traceable.
+| Path | Contents |
+| --- | --- |
+| [demo.py](demo.py), [src/engine.py](src/engine.py) | Example and CP-SAT repair model, queries and selection |
+| [src/independent_checker.py](src/independent_checker.py) | Independent schedule and impact checks |
+| [verify.py](verify.py), [verify_design_details.py](verify_design_details.py), [reproduce_tables.py](reproduce_tables.py) | Integrity checks, replay and table generation |
+| [results/](results) | Reference CSVs |
+| [data/saved_results.zip](data/saved_results.zip), [artifact.json](artifact.json), [SHA256SUMS.txt](SHA256SUMS.txt) | Evidence archive, member list and file hashes |
 
-Positive repairs are checked independently of the solver encoding. `INFEASIBLE` is a
-solver-confirmed refusal; a replayed assumption core and an independently checked
-arithmetic obstruction provide different evidence. The artifact does not treat these
-three guarantees as interchangeable.
+Saved policy labels `Linear`, `RoundRobin` and `LeastRecent` correspond to **Burden-aware**, **Round-robin** and **Least-recent**. The original labels and CSV filenames are retained for traceability.

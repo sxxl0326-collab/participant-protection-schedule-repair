@@ -1,10 +1,13 @@
 # Data provenance
 
-The experimental inputs are basic categorical-skill project models from **MSLIB v2.2**.
+[Project home](../../../README.md) · [Setup and commands](../README.md) · [Figure and table index](reproduction.md#figure-and-table-index)
+
+The experimental inputs are basic categorical-skill project models from the
+[MSLIB v2.2 release](https://github.com/MarioVanhoucke/MSLIB-Multi-Skilled-Resource-Constrained-Project-Library/releases/tag/v2.2).
 Events, protection requests and repeated workdays are generated experimental conditions.
 They are not observations of employee requests or organizational deployments.
 
-The public saved-data archive records:
+The [saved-data archive](../data/saved_results.zip) records:
 
 - the selected 60-model list in `supplement/mslib_inputs/selected_models60.csv`;
 - the frozen selection result in `supplement/mslib_inputs/sampling_result.json`;
@@ -18,3 +21,6 @@ documentation and rights remain authoritative.
 
 No individual questionnaire responses are included. The public evidence covers only the
 computational experiments. The standalone example uses synthetic worker identifiers.
+
+See [artifact.json](../artifact.json) for the complete archive inventory and
+[SHA256SUMS.txt](../SHA256SUMS.txt) for the recorded archive and file hashes.

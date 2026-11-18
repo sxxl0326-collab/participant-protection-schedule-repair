@@ -1,5 +1,28 @@
 # Reproduction guide
 
+[Project home](../../../README.md) · [Setup and commands](../README.md) · [Experimental design](experimental_design.md) · [Data provenance](data.md)
+
+## Figure and table index
+
+The paths beginning with `supplement/` refer to members of the
+[saved-data archive](../data/saved_results.zip). Download the fixed snapshot, then
+list the members with `python -m zipfile -l data/saved_results.zip` from `versions/v37`.
+
+| Paper item | Available material | How to inspect it |
+| --- | --- | --- |
+| Fig. 1 · Protocol example | [Standalone synthetic event on the same base model](../data/example_set4_1335.json) and [example code](../demo.py) | Run `python -B demo.py --protect W8` for a fresh request. This runnable event uses `set4_1335`. Its output need not match all details of the illustrated event. |
+| Fig. 2 · Request outcomes and cost pilot | `supplement/v19_projection.json.gz`, `supplement/v28_request_controls.json`, and `supplement/v19_cost/summary.json` | Inspect saved request results and session timings. Cost summaries describe the four archived events. |
+| Fig. 3 · Refusals and Hall example | `supplement/v23_explanations.json.gz`, `supplement/v23_explanation_comparison.json`, and `supplement/hall_example.json` | Inspect saved diagnostics, evidence coverage, and the Hall obstruction example. |
+| Fig. 4 · Matched-policy outcomes | `supplement/v24_projection.json.gz`, `supplement/v25_completion_sensitivity.json`, and the [matched-policy CSV](../results/table_III.csv) | Use the saved policy trajectories for model-level comparisons. The CSV gives aggregate outcomes. |
+| Table I · Core notation | [Model and query implementation](../src/engine.py) | Read the variable and query definitions in the implementation. |
+| Table II · Protection and selection | [Reference CSV](../results/table_II.csv) | Run `python -B verify.py` to rebuild the table. |
+| Table III · Base protection maps | `supplement/scalability_summary.csv` | Read the archived scale and classification summary. |
+| Table IV · Matched policy outcomes | [Reference CSV](../results/table_III.csv) | Run `python -B verify.py` to rebuild the table. |
+| Table V · Closed-loop outcomes | [Reference CSV](../results/table_IV_closedloop.csv) | Run `python -B verify.py` to rebuild the table. |
+
+The index points to evidence records and executable checks. The standard verifier
+regenerates the three reference CSVs. Figure source records can be inspected from the archive.
+
 ## Saved-result replay
 
 Run `python -B verify.py` from `versions/v37`. The entry checks file hashes, safely extracts
