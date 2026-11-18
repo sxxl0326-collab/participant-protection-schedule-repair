@@ -11,7 +11,7 @@ protection opportunities, or select a repair using previous impact counts.
 ## 1. Get the project
 
 ```sh
-git clone https://github.com/sxxl0326-collab/participant-protection-schedule-repair.git
+git clone --branch v1.0.0-code-data --single-branch https://github.com/sxxl0326-collab/participant-protection-schedule-repair.git
 cd participant-protection-schedule-repair/versions/v37
 ```
 
@@ -34,12 +34,20 @@ with the reference files in `results/`.
 | Output | Contents |
 | --- | --- |
 | [Table II](results/table_II.csv) | Request/no-request ablation and incidental delivery under History and Uniform requests |
-| [Table III](results/table_III.csv) | Matched-request impact, displacement and saved solve statuses |
-| [Table IV](results/table_IV_closedloop.csv) | Own-history requests, realized C/G, concessions, impact and statuses |
+| Table III | Base protection maps: `supplement/scalability_summary.csv` inside `data/saved_results.zip` |
+| [Table IV](results/table_III.csv) | Matched-request impact, displacement and saved solve statuses |
+| [Table V](results/table_IV_closedloop.csv) | Own-history requests, realized C/G, concessions, impact and statuses |
 | `reproduced/verification.json` | Independent replay reports and verification scope |
 
 This command checks saved evidence. It does not re-run all optimization experiments or
 independently prove recorded negative/optimal solver statuses.
+
+The CSV filenames retain historical table numbers. The mapping above follows the current
+manuscript; the notation table is not a numerical replay output.
+
+For generation rules, seed handling and descriptive archival checks, see
+[experimental_design.md](docs/experimental_design.md). Run `python -B archival_checks.py`
+to reproduce the requester-group and additive hybrid-cost summaries without a solver.
 
 ## 3. Run a fresh protection query
 
@@ -68,7 +76,7 @@ claims. Timeouts remain `UNKNOWN`.
 ```text
 demo.py                         Fresh CP-SAT example and bounded request response
 verify.py                       File hashes and saved-result replay
-reproduce_tables.py              Regenerate Tables II–IV
+reproduce_tables.py              Regenerate three numerical CSVs (legacy filenames)
 src/engine.py                    Repair model, exact queries, map and tie-breaking
 src/independent_checker.py       Schedule/impact checker without solver imports
 src/mslib_repair.py              Original feasibility/metric helper functions

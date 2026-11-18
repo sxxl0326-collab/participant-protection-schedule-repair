@@ -1,27 +1,37 @@
 # Participant Protection in Stable Schedule Repair
 
-Code and experimental data for a coordinator–participant protocol for schedule repair.
-The implementation answers duty-protection requests, returns checked schedules or solver
-statuses, explores bounded concessions, and supports history-aware repair selection.
+Code and saved synthetic experimental data for a coordinator–participant protocol for
+schedule repair. The implementation answers duty-protection requests, checks repairs,
+reports solver statuses, offers bounded concessions, and supports history-aware selection.
 
-**[Open the reproducibility project](versions/v37/)** — installation, runnable example,
-saved schedules, independent checks, and table-generation commands are provided together.
+**[Open the fixed code and data snapshot](https://github.com/sxxl0326-collab/participant-protection-schedule-repair/tree/v1.0.0-code-data/versions/v37)**
 
-## Quick start
+## Verify the saved results
 
 ```sh
-git clone https://github.com/sxxl0326-collab/participant-protection-schedule-repair.git
+git clone --branch v1.0.0-code-data --single-branch https://github.com/sxxl0326-collab/participant-protection-schedule-repair.git
 cd participant-protection-schedule-repair/versions/v37
 python -B verify.py
 ```
 
-Saved-result verification uses Python 3.10+ and the standard library. To solve a new
-protection query, install the solver and run the supplied example:
+Python 3.10+ and its standard library suffice for saved-result verification. The expected
+last record is `"status": "PASS"`, with `"solver_calls": 0`. It checks 10,000 matched-policy
+days and 5,000 own-history policy-days, and regenerates the saved numerical tables.
+This replays positive schedules and saved records; it does not independently prove
+negative solver statuses or rerun the optimization experiments.
+
+## Run a new query
 
 ```sh
 python -m pip install -r requirements.txt
 python -B demo.py --protect W8
 ```
 
-See the [project README](versions/v37/README.md) for outputs, data provenance, and the
-difference between replaying saved results and performing fresh optimization.
+See the [project guide](versions/v37/README.md),
+[experimental design](versions/v37/docs/experimental_design.md), and
+[reproduction guide](versions/v37/docs/reproduction.md) for configuration and scope.
+The [release](https://github.com/sxxl0326-collab/participant-protection-schedule-repair/releases/tag/v1.0.0-code-data)
+fixes this snapshot; the `v37` directory name is retained to preserve earlier links.
+
+This public repository contains code, synthetic experimental records and instructions.
+It contains no manuscript files or individual human-study responses.

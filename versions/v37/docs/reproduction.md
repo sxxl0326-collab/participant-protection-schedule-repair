@@ -12,7 +12,10 @@ checks. It does not modify the reference archive.
 | Uniform-request controls and common-optimal sensitivity | `supplement/v29_evidence.json`, shared pools and joint-request records | `verify_v29.py` checks positive schedules, saved negative-status dominance and capacity arithmetic |
 | Own-history closed loop | `supplement/closedloop_records_v35.json.gz` | `verify_closedloop_v35.py` checks 5,000 policy-days, generated requests, menu order, adopted witnesses and history updates |
 
-The regenerated CSVs must equal the reference Table II, III and IV files byte-for-byte.
+The regenerated CSVs must equal the reference files byte-for-byte. Current manuscript
+Table II maps to `table_II.csv`, Table IV to `table_III.csv`, and Table V to
+`table_IV_closedloop.csv`. Table III is the base-map scale summary
+(`supplement/scalability_summary.csv` inside the archive). Filenames retain legacy numbering.
 Reports retain the provenance and scope of each check. In particular, replaying a saved
 `OPTIMAL` or `INFEASIBLE` status does not produce an independent solver proof trace.
 
@@ -39,7 +42,7 @@ The same data archive also contains Hall/precedence examples and refusal diagnos
 the scale summary, two-outage compatibility records, the Poisson structural stress-test
 summary, the four-event cost pilot, common-pool results and offline bounds. These retain
 their original experiment identifiers. They are supporting records; the top-level
-verification command specifically regenerates Tables II–IV and runs the checks listed
+verification command specifically regenerates the three numerical CSVs and runs the checks listed
 above. `artifact.json` lists every public archive member.
 
 ## Reuse and data rights
